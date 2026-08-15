@@ -4,7 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/dbwarden-pgsql-types?logo=pypi&logoColor=white&style=for-the-badge)](https://pypi.org/project/dbwarden-pgsql-types/)
 [![CI](https://img.shields.io/github/actions/workflow/status/dbwarden-org/dbwarden-pgsql-types/test.yml?logo=github&logoColor=white&style=for-the-badge)](https://github.com/dbwarden-org/dbwarden-pgsql-types/actions/workflows/test.yml)
 
-PostgreSQL custom type and sequence object handlers for [DBWarden](https://github.com/dbwarden-org/dbwarden).
+PostgreSQL custom type and sequence object handlers for [dbwarden](https://github.com/dbwarden-org/dbwarden).
 
 ## Object types
 
@@ -25,7 +25,7 @@ dbwarden plugin add dbwarden-pgsql-types
 
 ## Trust tier
 
-This is an **official** DBWarden plugin. Its distribution name is classified before any of its code is imported, and `dbwarden plugin add` verifies the PyPI Trusted-Publishing attestation (PEP 740) against `dbwarden-org/dbwarden-pgsql-types` before installing. It loads automatically once installed, with no `dbwarden plugin trust` step.
+This is an **official** dbwarden plugin. Its distribution name is classified before any of its code is imported, and `dbwarden plugin add` verifies the PyPI Trusted-Publishing attestation (PEP 740) against `dbwarden-org/dbwarden-pgsql-types` before installing. It loads automatically once installed, with no `dbwarden plugin trust` step.
 
 ## Development
 
@@ -34,7 +34,7 @@ uv venv && uv pip install -e . -e ../dbwarden pytest
 pytest -q
 ```
 
-The `tests/test_conformance.py` suite runs DBWarden's shared conformance harness (`dbwarden.plugin_conformance`): entry point resolution, no import-time side effects, hook signatures, public-API-only imports, and idempotent `setup()`.
+The `tests/test_conformance.py` suite runs dbwarden's shared conformance harness (`dbwarden.plugin_conformance`): entry point resolution, no import-time side effects, hook signatures, public-API-only imports, and idempotent `setup()`.
 
 ## License
 
