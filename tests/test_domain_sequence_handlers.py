@@ -21,10 +21,10 @@ from dbwarden.engine.snapshot import (
 
 
 def _inline_create_domain_sql(info: dict[str, Any], name: str) -> str:
-    from dbwarden.engine.model_discovery import _qualified_name
+    from dbwarden.engine.core.plugin_api import qualified_name
 
     schema = info.get("schema") if isinstance(info, dict) else None
-    qname = _qualified_name(name, schema)
+    qname = qualified_name(name, schema)
     ddl_type = info.get("type", "text")
     parts = [f"CREATE DOMAIN {qname} AS {ddl_type}"]
     if info.get("default"):
@@ -37,18 +37,18 @@ def _inline_create_domain_sql(info: dict[str, Any], name: str) -> str:
 
 
 def _inline_drop_domain_sql(info: dict[str, Any], name: str) -> str:
-    from dbwarden.engine.model_discovery import _qualified_name
+    from dbwarden.engine.core.plugin_api import qualified_name
 
     schema = info.get("schema") if isinstance(info, dict) else None
-    qname = _qualified_name(name, schema)
+    qname = qualified_name(name, schema)
     return f"DROP DOMAIN IF EXISTS {qname};"
 
 
 def _inline_create_sequence_sql(info: dict[str, Any], name: str) -> str:
-    from dbwarden.engine.model_discovery import _qualified_name
+    from dbwarden.engine.core.plugin_api import qualified_name
 
     schema = info.get("schema") if isinstance(info, dict) else None
-    qname = _qualified_name(name, schema)
+    qname = qualified_name(name, schema)
     parts = [f"CREATE SEQUENCE IF NOT EXISTS {qname}"]
     if info.get("increment") is not None:
         parts.append(f"INCREMENT BY {info['increment']}")
@@ -68,10 +68,10 @@ def _inline_create_sequence_sql(info: dict[str, Any], name: str) -> str:
 
 
 def _inline_drop_sequence_sql(info: dict[str, Any], name: str) -> str:
-    from dbwarden.engine.model_discovery import _qualified_name
+    from dbwarden.engine.core.plugin_api import qualified_name
 
     schema = info.get("schema") if isinstance(info, dict) else None
-    qname = _qualified_name(name, schema)
+    qname = qualified_name(name, schema)
     return f"DROP SEQUENCE IF EXISTS {qname};"
 
 
